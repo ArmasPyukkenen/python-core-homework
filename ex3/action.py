@@ -7,9 +7,9 @@ class BaseAction:
 
     def __eq__(self, other):
         return self.name == other.name
-    
+
     def __gt__(self, other):
-        return (self.name, other.name) in (('Rock', 'Scissors'), ('Scissors', 'Paper'), ('Paper', 'Rock'))
+        return False
 
     def __hash__(self):
         return hash(self.name)
@@ -24,12 +24,22 @@ class RockAction(BaseAction):
     def __init__(self):
         super().__init__('Rock')
 
+    def __gt__(self, other):
+        return self.name == 'Rock' and other.name == 'Scissors'
+
 
 class PaperAction(BaseAction):
     def __init__(self):
         super().__init__('Paper')
+        
+    def __gt__(self, other):
+        return self.name == 'Paper' and other.name == 'Rock'
 
 
 class ScissorsAction(BaseAction):
     def __init__(self):
         super().__init__('Scissors')
+
+        
+    def __gt__(self, other):
+        return self.name == 'Scissors' and other.name == 'Paper'

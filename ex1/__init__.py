@@ -5,18 +5,18 @@ def build_roles_tree(mapping):
     """
     # put your code here
     return {
-        "categories" : [
+        "categories": [
             {
-                "id" : "category-" + categoryData["id"],
-                "text" : categoryData["name"],
-                "items" : [{
+                "id": "category-" + category_data["id"],
+                "text": category_data["name"],
+                "items": [{
                     "id": id,
                     "text": mapping["roles"][id]["name"]
-                } 
-                for id in categoryData["roleIds"]]
-            } 
-            for categoryData in
-            [ mapping["categories"][categoryId] for categoryId in mapping["categoryIdsSorted"]]
+                    }
+                    for id in category_data["roleIds"]]
+            }
+            for category_data in
+            [mapping["categories"][category_id] for category_id in mapping["categoryIdsSorted"]]
         ]
     }
     pass

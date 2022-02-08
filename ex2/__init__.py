@@ -29,4 +29,3 @@ def benchmark(num):
 @benchmark(CALL_COUNT)
 def fetch_page(url):
     fetcher.get(url)
-
